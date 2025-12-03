@@ -1,5 +1,6 @@
 import ComponentFactory from './ComponentFactory.js';
 import Icons from './utils/Icons.js';
+import Scroller from './GSAP/Scroller.js';
 
 class Main {
   constructor() {
@@ -10,7 +11,12 @@ class Main {
     document.documentElement.classList.add('has-js');
 
     Icons.load();
-    new ComponentFactory();
+
+    // Crée le scroller
+    const scroller = new Scroller('#smooth-wrapper', '#smooth-content');
+
+    // Passe le scroller à la factory
+    new ComponentFactory(scroller);
   }
 }
 

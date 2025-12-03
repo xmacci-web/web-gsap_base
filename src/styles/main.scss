@@ -27,8 +27,10 @@
 // COMPONENTS
 // Composants d'interface utilisateur spécifiques.
 // C’est là que la majorité de notre travail a lieu.
-
+@import 'components/hero';
+@import 'components/text';
 // UTILITIES
 // Utilitaires et classes auxiliaires avec possibilité de remplacer tout ce qui précède, par exemple masquer les éléments de la page
 @import 'utilities/accessibility';
 @import 'utilities/spacing';
+@import 'components/icons';
