@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
 
 gsap.registerPlugin(Observer, ScrollTrigger);
 
-export default class HeroDrag {
+export default class Drag {
   constructor(element, scroller) {
     this.element = element;
     this.scroller = scroller;
@@ -53,13 +53,12 @@ export default class HeroDrag {
         this.scroller.smoother.scrollTop() - self.deltaY * this.dragStrength;
       this.scroller.smoother.scrollTop(newPos);
     }
+
+    //  Dispatch event for indicators
+    window.dispatchEvent(new CustomEvent('drag'));
   }
 
   reset() {
-    gsap.to(this.element, {
-      rotateX: 0,
-      duration: 0.4,
-      ease: 'power2.out',
-    });
+    gsap.to(this.element, { rotateX: 0, duration: 0.4, ease: 'power2.out' });
   }
 }

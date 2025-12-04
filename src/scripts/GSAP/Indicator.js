@@ -31,6 +31,9 @@ export default class Indicator {
     window.addEventListener('wheel', () => this.hideTemporarily(), {
       passive: true,
     });
+
+    //  Listen to drag events
+    window.addEventListener('drag', () => this.hideTemporarily());
   }
 
   hideTemporarily() {
@@ -39,7 +42,6 @@ export default class Indicator {
 
     if (this.scrollTimeout) clearTimeout(this.scrollTimeout);
 
-    // Show again after 0.5s of no scroll
     this.scrollTimeout = setTimeout(() => this.show(), 500);
   }
 
