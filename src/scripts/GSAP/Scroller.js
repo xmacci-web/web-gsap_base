@@ -18,8 +18,6 @@ export default class Scroller {
     this.wrapper = document.querySelector(this.wrapperSelector);
     this.content = document.querySelector(this.contentSelector);
 
-    if (!this.wrapper || !this.content) return;
-
     this.smoother = ScrollSmoother.create({
       wrapper: this.wrapper,
       content: this.content,
@@ -29,8 +27,6 @@ export default class Scroller {
   }
 
   scrollBy(amount) {
-    if (!this.smoother) return;
-
     gsap.to(this.smoother, {
       scrollTop: this.smoother.scrollTop() + amount,
       duration: 0.3,
